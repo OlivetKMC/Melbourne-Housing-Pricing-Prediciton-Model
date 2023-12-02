@@ -1,0 +1,15 @@
+{
+    "recommendations": [
+        "abusaidm.html-snippets",
+        "njpwerner.autodocstring",
+        "sidthesloth.html5-boilerplate",
+        "ecmel.vscode-html-css",
+        "george-alisson.html-preview-vscode",
+        "visualstudioexptteam.vscodeintellicode",
+        "visualstudioexptteam.intellicode-api-usage-examples",
+        "zignd.html-css-class-completion",
+        "zainchen.json",
+        "ms-toolsai.jupyter-renderers",
+        "ms-python.vscode-pylance"
+    ]
+}

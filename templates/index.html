@@ -1,0 +1,155 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melbourne Housing Pricing Estimation Webpage</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('/static/pexels.jpg');
+            background-size: cover;
+        }
+
+        .box {
+            width: 90%;
+            max-width: 800px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.4);
+            padding: 30px;
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .form-group label, .form-group input {
+            width: 58%;
+            text-align: left;
+        }
+
+        input {
+            padding: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input:hover {
+            background-color: #b8ffcb;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 15px 25px;
+            border: 0;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+            padding: 16px 26px;
+        }
+
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+            margin: 30px 80px 0px 80px;   
+        }
+
+        h2 {
+            font-size: 15px;
+            text-align: center;
+            margin: 10px 50px 30px 50px;
+            font-weight: normal;
+
+        }
+
+        #predictionResult {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #4CAF50;
+            background: #f0f8ff;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+        <h1>Melbourne Housing Pricing Estimation Webpage</h1>
+        <h2>Built by Adetola Olivet using the Random Forest Regression Model</h2>
+
+        <form method="post" id="predictionForm">
+            <div class="form-group">
+                <label for="Rooms">Number of Rooms (1 - 10):</label>
+                <input type="number" id="Rooms" name="Rooms" required min="1" max="10" step="1">
+            </div>
+
+            <div class="form-group">
+                <label for="Bathroom">Number of Bathrooms (0 - 8):</label>
+                <input type="number" id="Bathroom" name="Bathroom" required min="0" max="8" step="1">
+            </div>
+
+            <div class="form-group">
+                <label for="LandSize">Landsize (0 - 433014) Square meters:</label>
+                <input type="number" id="LandSize" name="Landsize" required min="0" max="433014" step="1">
+            </div>
+
+            <div class="form-group">
+                <label for="Car">No of Cars (0 - 10):</label>
+                <input type="number" id="Car" name="Car" required min="0" max="10" step="1">
+            </div> 
+
+            <div class="form-group">
+                            <label for="BuildingArea">Building Area (0 - 3112) square meters:</label>
+                            <input type="number" id="BuildingArea" name="BuildingArea" required min="0" max="3112" step="1">
+                        </div>
+
+            <div class="form-group">
+                <label for="Lattitude">Latitude (-38.182550 - 0.079260) degrees:</label>
+                <input type="number" id="Lattitude" name="Lattitude" required min="-38.182550" max="0.079260" step="0.000001">
+            </div>
+
+            <div class="form-group">
+                <label for="Longtitude">Longtitude (0.103916 - 145.526350) degrees:</label>
+                <input type="number" id="Longtitude" name="Longtitude" required min="0.103916" max="145.526350" step="0.000001">
+            </div>
+
+            
+            
+
+            <button type="submit">Get Prediction</button>
+        </form>
+
+        {% if prediction %}
+        <div id="predictionResult">The Estimated Price is ${{ prediction}}</div>
+        {% endif %}
+
+    </div>
+</body>
+</html>
+
